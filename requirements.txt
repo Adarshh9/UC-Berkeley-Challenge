@@ -1,0 +1,7 @@
+google.generativeai 
+transformers 
+torch 
+sacremoses
+pinecone-client[grpc] 
+sentence-transformers
+python-dotenv
