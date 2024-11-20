@@ -28,8 +28,8 @@ The system employs a sophisticated workflow:
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/yourusername/meta-learning-qa-system.git
-cd meta-learning-qa-system
+git clone https://github.com/Naman-72/UC-Berkeley-Challenge.git
+cd UC-Berkeley-Challenge
 ```
 
 ### 2. Create Virtual Environment
