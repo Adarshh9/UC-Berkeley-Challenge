@@ -43,7 +43,7 @@ We present a **Cross-Attention Driven Multi-Agent Collaborative Chatbot**, lever
 ## **Tech Stack**
 - **Models**: BioGPT, Qwen Coder (Hugging Face)
 - **Frameworks**: PyTorch, Hugging Face Transformers
-- **Learning Techniques**: Reinforcement Learning (RL), Multi-Agent RL (MARL), Game Theory
+- **Learning Techniques**: Reinforcement Learning (RL), Multi-Agent RL (MARL), Game Theory, Cross-Attention
 
 ---
 
