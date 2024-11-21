@@ -5,7 +5,9 @@
 ## **Overview**
 We present a **Cross-Attention Driven Multi-Agent Collaborative Chatbot**, leveraging specialized smaller language models (SLMs) to outperform monolithic large-scale LLMs. This solution dynamically integrates domain-specific expertise, utilizing cutting-edge reinforcement learning (RL) and multi-agent reinforcement learning (MARL) techniques to deliver **semantically rich, contextually precise, and computationally efficient responses**.
 
-<img src="https://github.com/user-attachments/assets/f9b00080-2fde-4cbc-937e-db290543cf19" alt="FlowChart" style="width:50%;"/>
+<p align="center">
+<img src="https://github.com/user-attachments/assets/eab68331-d68a-4a97-8b15-3faa823136f7" alt="FlowChart" style="width:50%;"/>
+</p>
 
 ---
 
@@ -37,6 +39,10 @@ We present a **Cross-Attention Driven Multi-Agent Collaborative Chatbot**, lever
    - Responses are integrated through cross-attention mechanisms to exchange insights and refine outputs.
 4. **Final Merging and Output**:
    - GPT-4-mini combines the refined outputs into a unified, semantically precise response.
+
+<p align="center">
+<img src="https://github.com/user-attachments/assets/d53ea399-c554-4ed4-9034-235a6c4c9a21" alt="FlowChart" style="width:50%;"/>
+</p>
 
 ---
 
@@ -81,7 +87,6 @@ And many more accordingly!
 ---
 
 ## **Results**
-- Achieves **90%+ accuracy** in domain-specific benchmarks.
 - Reduces compute costs by up to **50%** compared to monolithic LLMs.
 - Average response time of **<2 seconds** per query.
 
