@@ -4,7 +4,15 @@
 The **Collaborative Multi-Agent AI Framework** is a predicted state-of-the-art solution , that uses multiple Specialized Smaller language models (SLMs) to deliver domain-specific colab that surpass traditional monolithic large-scale language models (LLMs). By employing Multi-Agent Reinforcement Learning, intelligent query routing and some other advanced learning Techniques , this system achieves superior computational efficiency and delivers contextually precise, efficient, and robust responses .
 
 <p align="center">
+   System Architecture
+   <br/>
 <img src="https://github.com/user-attachments/assets/eab68331-d68a-4a97-8b15-3faa823136f7" alt="FlowChart" style="width:50%;"/>
+</p>
+
+<p align="center">
+   Cross Attention Logic
+   <br/>
+<img src="https://github.com/user-attachments/assets/e5a18b24-df53-4200-8a61-eea22eda1c25" alt="FlowChart" style="width:50%;"/>
 </p>
 
 ---
