@@ -1,25 +1,27 @@
 # **Collaborative Multi-Agent AI Framework**
 
 ## **Overview**
-The **Collaborative Multi-Agent AI Framework** is a predicted state-of-the-art solution , that uses multiple Specialized Smaller language models (SLMs) to deliver domain-specific colab that surpass traditional monolithic large-scale language models (LLMs). By employing Multi-Agent Reinforcement Learning, intelligent query routing and some other advanced learning Techniques , this system achieves superior computational efficiency and delivers contextually precise, efficient, and robust responses .
+The **Collaborative Multi-Agent AI Framework** is a predicted state-of-the-art solution , that uses multiple Specialized Smaller language models (SLMs) to deliver domain-specific colab that surpass traditional monolithic large-scale language models (LLMs). By employing Multi-Agent Reinforcement Learning, intelligent query routing and some other advanced learning Techniques , this system achieves superior computational efficiency and delivers contextually precise, efficient, and robust responses.
 
 <p align="center">
-   System Architecture
-   <br/>
 <img src="https://github.com/user-attachments/assets/eab68331-d68a-4a97-8b15-3faa823136f7" alt="FlowChart" style="width:50%;"/>
+   <br/>
+   System Architecture
 </p>
 
+## **What is Cross Attention Logic?**
 <p align="center">
-   Cross Attention Logic
-   <br/>
 <img src="https://github.com/user-attachments/assets/e5a18b24-df53-4200-8a61-eea22eda1c25" alt="FlowChart" style="width:50%;"/>
+   <br/>
+   Cross Attention Logic
 </p>
+
 
 ---
 
 ## **Key Features**
 1. **Intelligent Query Splitting and Routing**:
-   - Uses a SOTA LLM API to divide user queries into domain-specific components.
+   - Uses a State of the art (SOTA) LLM API to divide user queries into domain-specific components.
    - Model Specialization: Routes components to domain-specific models:
      - Technical Queries: Addressed by Qwen Coder.
      - Medical Queries: Addressed by BioGPT.
@@ -28,7 +30,7 @@ The **Collaborative Multi-Agent AI Framework** is a predicted state-of-the-art s
    - Uses **cross-attention mechanism** to integrate domain-specific insights into a unified response.
    - Ensures comprehensive understanding across disciplines.
 
-3. **Reinforcement Learning & Caching**:
+3. **Reinforcement Learning & Caching** (Not Yet Implemented):
    - Employs RL for model collaboration and response refinement.
    - Implements **multi-agent reinforcement learning (MARL)** with game-theory principles to foster synergistic behavior.
    - Leverages embeddings from SentenceTransformer and indexes in Pinecone for query optimization and caching.
