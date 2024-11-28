@@ -129,6 +129,8 @@ Reinforcement Learning:
 - **Models**: BioGPT, Qwen Coder (Hugging Face)
 - **Frameworks**: PyTorch, Hugging Face Transformers
 - **Learning Techniques**: Reinforcement Learning (RL), Multi-Agent RL (MARL), Game Theory, Cross-Attention
+- **Caching**: Redis for pre-generated query responses
+- **Indexing**: Pinecone for embedding retrieval and optimization
 
 ---
 
