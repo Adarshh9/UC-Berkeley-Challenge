@@ -38,15 +38,22 @@ The **Collaborative Multi-Agent AI Framework** is a predicted state-of-the-art s
 ---
 
 ## **System Architecture**
-1. **Input Handling**:
-   - User queries are preprocessed and analyzed using embeddings.
-   - Pinecone checks for cached responses to reduce computation for frequent queries.
-2. **Domain-Specific Processing**:
-   - Query is intelligently split and routed by GPT-4-mini.
-   - BioGPT and Qwen Coder process their respective query fragments and generate initial responses.
-3. **Cross-Domain Integration and Output**:
-   - Responses are integrated through cross-attention mechanisms to exchange insights and refine outputs.
-   - GPT-4-mini combines the refined outputs into a cohesive and contextually accurate answer..
+Input Query Analysis:
+- User queries are analyzed and routed by GPT-4.0 Mini.
+- Pre-generated responses are retrieved from a Redis-based cache if available.
+
+Domain-Specific Processing:
+- Query components are routed to domain-specific models (BioGPT, Qwen Coder), which generate independent responses and embeddings.
+
+Cross-Attention Mechanism:
+- Responses are refined through a cross-attention mechanism, enabling collaborative reasoning.
+
+Response Generation:
+- Outputs are merged and validated by GPT-4.0 Mini, producing a unified, semantically rich response.
+
+Reinforcement Learning:
+- MARL principles iteratively optimize model collaboration for long-term performance.
+
 
 <p align="center">
 <img src="https://github.com/user-attachments/assets/d53ea399-c554-4ed4-9034-235a6c4c9a21" alt="FlowChart" style="width:50%;"/>
