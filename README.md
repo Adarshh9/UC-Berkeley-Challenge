@@ -1,7 +1,9 @@
 # **Collaborative Multi-Agent AI Framework using Cross-Attention**
 
 ## **Overview**
-The **Collaborative Multi-Agent AI Framework** is a predicted state-of-the-art solution , that uses multiple Specialized Smaller language models (SLMs) to deliver domain-specific colab that surpass traditional monolithic large-scale language models (LLMs). By employing Multi-Agent Reinforcement Learning, intelligent query routing and some other advanced learning Techniques , this system achieves superior computational efficiency and delivers contextually precise, efficient, and robust responses.
+The **Collaborative Multi-Agent AI Framework** is a state-of-the-art solution that integrates multiple specialized smaller language models (SLMs) to deliver domain-specific expertise through collaborative reasoning. This system surpasses traditional monolithic large-scale language models (LLMs) by employing Multi-Agent Reinforcement Learning (MARL), intelligent query routing, and cross-attention mechanisms. It achieves superior computational efficiency while delivering semantically rich, precise, and robust responses across diverse domains.
+
+This project aims to develop an efficient, domain-aware chatbot system by integrating specialized models like **BioGPT** (for medical expertise) and **Qwen Coder** (for technical expertise) into a collaborative framework. The system utilizes **GPT-4.0 Mini** as a lightweight query analysis and routing agent to decompose user queries and direct them to relevant models. Leveraging **cross-attention** and **multi-agent reinforcement learning (MARL)**, the architecture ensures knowledge exchange and optimized collaboration between models.
 
 <p align="center">
 <img src="https://github.com/user-attachments/assets/eab68331-d68a-4a97-8b15-3faa823136f7" alt="FlowChart" style="width:50%;"/>
@@ -9,31 +11,95 @@ The **Collaborative Multi-Agent AI Framework** is a predicted state-of-the-art s
    System Architecture
 </p>
 
-## **What is Cross Attention Logic?**
+---
+
+
+## **What is Cross Attention in Our Project?**
+
 <p align="center">
 <img src="https://github.com/user-attachments/assets/e5a18b24-df53-4200-8a61-eea22eda1c25" alt="FlowChart" style="width:50%;"/>
    <br/>
    Cross Attention Logic
 </p>
 
+Cross attention is a pivotal mechanism in our framework that enables collaborative reasoning and information exchange between specialized language models (SLMs), such as **BioGPT** and **Qwen Coder**, to produce unified, semantically coherent responses. It operates as the connective tissue between models, aligning their domain-specific insights and ensuring that the final output leverages the strengths of each model effectively.
+
+#### **How Cross Attention Works**
+1. **Input Tensors from Specialized Models**:
+   - Each domain-specific model (e.g., **BioGPT** and **Qwen Coder**) processes its assigned query fragments and generates two key components:
+     - **Key (K)**: Encodes the contextual information of the domain.
+     - **Value (V)**: Represents the actual knowledge or output of the model.
+     - Additionally, for cross-attention, a **Query (Q)** tensor is generated from the main routing model (**GPT-4.0 Mini**) or the primary domain.
+
+2. **Attention Scores Calculation**:
+   - Cross attention calculates the **similarity between the Query tensor (Q)** from one model and the **Key tensor (K)** from another model:
+     \[
+     Attention Scores = Q \cdot K^T
+     \]
+   - This step identifies how strongly one model's output (Value tensor) should influence the response, based on its relevance to the query.
+
+3. **Weighting the Outputs**:
+   - The attention scores are passed through a **softmax function** to normalize them into probabilities.
+   - These probabilities are then applied to the Value tensor (V) of the second model:
+     \[
+     Context = \text{Softmax(Attention Scores)} \cdot V
+     \]
+   - This creates a refined "context" that integrates knowledge from the second model into the primary response.
+
+4. **Knowledge Exchange**:
+   - The refined context vectors are **reshaped and combined** into the originating model's tensor, enabling a bidirectional exchange of knowledge.
+   - This ensures that models do not work in isolation but instead collaboratively enrich each other’s outputs.
+
+5. **Unified Response Generation**:
+   - After cross-attention, the enriched outputs from all participating models are merged, ensuring a comprehensive understanding of the query.
+
+#### **Benefits of Cross Attention in Our Framework**
+1. **Semantic Alignment**:
+   - Cross attention ensures that responses from different models are aligned and consistent in context, even if they originate from diverse domains.
+
+2. **Enhanced Collaboration**:
+   - It allows models to "learn from" and adapt to the strengths of other models during query resolution, resulting in a holistic response.
+
+3. **Contextual Refinement**:
+   - By weighting the contributions of each model's output, cross attention dynamically adjusts the importance of specific knowledge based on query relevance.
+
+4. **Computational Efficiency**:
+   - Instead of using a single, large-scale model for all queries, cross attention leverages lightweight specialized models and fuses their outputs effectively.
+
+#### **Example of Cross Attention Workflow**
+- **Input Query**: "Can you explain the correlation between diabetes and sedentary lifestyles in terms of technical solutions?"
+  1. **Query Splitting**:
+     - "Correlation between diabetes and sedentary lifestyles" → **BioGPT**.
+     - "Technical solutions" → **Qwen Coder**.
+  2. **Individual Model Processing**:
+     - BioGPT generates a detailed medical explanation.
+     - Qwen Coder provides insights into technological interventions (e.g., fitness tracking apps).
+  3. **Cross Attention**:
+     - BioGPT’s output is processed as the Key/Value for Qwen Coder's Query tensor, enabling integration of medical data into the technical solution context.
+     - Similarly, Qwen Coder's output enriches BioGPT’s explanation with technical feasibility.
+  4. **Unified Response**:
+     - The final response merges both outputs into a coherent answer addressing both medical and technical aspects.
+
 
 ---
 
 ## **Key Features**
 1. **Intelligent Query Splitting and Routing**:
-   - Uses a State of the art (SOTA) LLM API to divide user queries into domain-specific components.
-   - Model Specialization: Routes components to domain-specific models:
-     - Technical Queries: Addressed by Qwen Coder.
-     - Medical Queries: Addressed by BioGPT.
+   - **GPT-4.0 Mini** decomposes user queries into domain-specific components.
+   - Specialized routing:
+     - **Technical Queries**: Processed by **Qwen Coder**.
+     - **Medical Queries**: Addressed by **BioGPT**.
 
-2. **Model Collaboration via Cross-Attention**:
-   - Uses **cross-attention mechanism** to integrate domain-specific insights into a unified response.
-   - Ensures comprehensive understanding across disciplines.
+2. **Model Collaboration with Cross-Attention**:
+   - Integrates responses through a **cross-attention mechanism** to enhance semantic coherence.
+   - Enables knowledge exchange between domain-specific embeddings.
 
-3. **Reinforcement Learning & Caching** (Not Yet Implemented):
-   - Employs RL for model collaboration and response refinement.
-   - Implements **multi-agent reinforcement learning (MARL)** with game-theory principles to foster synergistic behavior.
-   - Leverages embeddings from SentenceTransformer and indexes in Pinecone for query optimization and caching.
+3. **Reinforcement Learning and MARL**:
+   - Implements **multi-agent reinforcement learning (MARL)** to foster synergistic interactions.
+   - Uses game-theoretic strategies to optimize information exchange and improve response quality dynamically.
+
+4. **Caching and Efficiency**:
+   - Uses a caching layer (e.g., Redis) for frequent queries to reduce latency and computational overhead.
 
 ---
 
