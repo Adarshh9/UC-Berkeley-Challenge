@@ -33,17 +33,17 @@ Cross attention is a pivotal mechanism in our framework that enables collaborati
 
 2. **Attention Scores Calculation**:
    - Cross attention calculates the **similarity between the Query tensor (Q)** from one model and the **Key tensor (K)** from another model:
-     \[
-     Attention Scores = Q \cdot K^T
-     \]
+     <br />
+     ### *Attention Scores = Q . K ^ T*
+     <br />
    - This step identifies how strongly one model's output (Value tensor) should influence the response, based on its relevance to the query.
 
 3. **Weighting the Outputs**:
    - The attention scores are passed through a **softmax function** to normalize them into probabilities.
    - These probabilities are then applied to the Value tensor (V) of the second model:
-     \[
-     Context = \text{Softmax(Attention Scores)} \cdot V
-     \]
+     <br />
+     ### *Context=Softmax(Attention Scores)⋅V*
+     <br />
    - This creates a refined "context" that integrates knowledge from the second model into the primary response.
 
 4. **Knowledge Exchange**:
@@ -53,7 +53,7 @@ Cross attention is a pivotal mechanism in our framework that enables collaborati
 5. **Unified Response Generation**:
    - After cross-attention, the enriched outputs from all participating models are merged, ensuring a comprehensive understanding of the query.
 
-#### **Benefits of Cross Attention in Our Framework**
+### **Benefits of Cross Attention in Our Framework**
 1. **Semantic Alignment**:
    - Cross attention ensures that responses from different models are aligned and consistent in context, even if they originate from diverse domains.
 
@@ -66,20 +66,18 @@ Cross attention is a pivotal mechanism in our framework that enables collaborati
 4. **Computational Efficiency**:
    - Instead of using a single, large-scale model for all queries, cross attention leverages lightweight specialized models and fuses their outputs effectively.
 
-#### **Example of Cross Attention Workflow**
-- **Input Query**: "Can you explain the correlation between diabetes and sedentary lifestyles in terms of technical solutions?"
+### **Example Workflow: Query Splitting and Cross Attention**
+- **Original Query**: "Explain how diabetes impacts cardiovascular health and suggest a technical solution to monitor related risks."
   1. **Query Splitting**:
-     - "Correlation between diabetes and sedentary lifestyles" → **BioGPT**.
-     - "Technical solutions" → **Qwen Coder**.
-  2. **Individual Model Processing**:
-     - BioGPT generates a detailed medical explanation.
-     - Qwen Coder provides insights into technological interventions (e.g., fitness tracking apps).
-  3. **Cross Attention**:
-     - BioGPT’s output is processed as the Key/Value for Qwen Coder's Query tensor, enabling integration of medical data into the technical solution context.
-     - Similarly, Qwen Coder's output enriches BioGPT’s explanation with technical feasibility.
+     - Sub-Query 1: "How does diabetes impact cardiovascular health?" → Sent to **BioGPT**.
+     - Sub-Query 2: "What are technical solutions to monitor cardiovascular risks for diabetes patients?" → Sent to **Qwen Coder**.
+  2. **Domain-Specific Processing**:
+     - **BioGPT**: Outputs a detailed explanation of the biological link between diabetes and cardiovascular health.
+     - **Qwen Coder**: Suggests technical solutions like wearable devices or monitoring applications.
+  3. **Cross Attention Integration**:
+     - Cross attention enables knowledge sharing between the models, enriching the technical solution with medical context and vice versa.
   4. **Unified Response**:
-     - The final response merges both outputs into a coherent answer addressing both medical and technical aspects.
-
+     - A final, coherent answer is generated, combining medical insights with actionable technical recommendations.
 
 ---
 
